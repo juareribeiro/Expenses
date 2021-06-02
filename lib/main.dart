@@ -106,6 +106,6 @@ class _MyHomePageState extends State<MyHomePage> {
         floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),
             onPressed: () => _openTransactionFormModal(context)),
-        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat);
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat);
   }
 }
