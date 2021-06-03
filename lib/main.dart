@@ -97,9 +97,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context);
     bool isLandscape = mq.orientation == Orientation.landscape;
+    final listIcon = Platform.isIOS ? CupertinoIcons.refresh : Icons.list;
+    final chartIcon =
+        Platform.isIOS ? CupertinoIcons.refresh : Icons.show_chart;
+
     final actions = <Widget>[
       if (isLandscape)
-        _getIconButton(_showChart ? Icons.list : Icons.show_chart, () {
+        _getIconButton(_showChart ? listIcon : chartIcon, () {
           setState(() {
             _showChart = !_showChart;
           });
@@ -127,7 +131,8 @@ class _MyHomePageState extends State<MyHomePage> {
     final availableHeight =
         mq.size.height - appBar.preferredSize.height - mq.padding.top;
 
-    final bodyPage = SingleChildScrollView(
+    final bodyPage = SafeArea(
+        child: SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -143,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
             )
         ],
       ),
-    );
+    ));
 
     return Platform.isIOS
         ? CupertinoPageScaffold(
