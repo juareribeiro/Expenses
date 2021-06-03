@@ -83,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context);
     final appBar = AppBar(
       title: Text(
         'Despesas Pessoais',
@@ -93,9 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () => _openTransactionFormModal(context))
       ],
     );
-    final availableHeight = MediaQuery.of(context).size.height -
-        appBar.preferredSize.height -
-        MediaQuery.of(context).padding.top;
+    final availableHeight =
+        mq.size.height - appBar.preferredSize.height - mq.padding.top;
 
     return Scaffold(
         appBar: appBar,
