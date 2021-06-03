@@ -65,8 +65,10 @@ class _TransactionFormState extends State<TransactionForm> {
                           : DateFormat('dd/MM/y').format(_selectedDate),
                     ),
                   ),
-                  FlatButton(
-                    textColor: Theme.of(context).primaryColor,
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      primary: Theme.of(context).primaryColor,
+                    ),
                     onPressed: _showDatePicker,
                     child: Text(
                       'Selecionar data',
@@ -79,11 +81,12 @@ class _TransactionFormState extends State<TransactionForm> {
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                RaisedButton(
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      onPrimary: Theme.of(context).textTheme.button.color,
+                      primary: Theme.of(context).primaryColor),
                   onPressed: _submitForm,
                   child: Text('Nova Transação'),
-                  color: Theme.of(context).primaryColor,
-                  textColor: Theme.of(context).textTheme.button.color,
                 ),
               ],
             )
